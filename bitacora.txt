@@ -1,0 +1,16 @@
+URL completa:[http://127.0.0.1:5500/index.html](http://127.0.0.1:5500/index.html)
+Protocolo:HTTP
+Host:127.0.0.1
+Puerto:5500
+Ruta:/index.html
+Método de la petición:GET
+Código de estado:304 
+
+http://127.0.0.1:5500/promociones.html
+Código de respuesta:404 Not Found
+Significado:Es un código de estado HTTP de la familia 4xx (errores del cliente). 
+
+
+html: se utiliza para generar las estructura de la pagina, textos, imagenes, etc.
+CSS: se encarga de ajustar el estilo y diseño de la pagina.
+javascript: se encarga de adr funcionamiento y acciones en la pagina.
