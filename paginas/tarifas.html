@@ -3,107 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consulta las tarifas de alquiler de bicicletas y precios de los recorridos guiados en Medellín con Rueda Libre.">
-  <title>Tarifas y Recorridos | Rueda Libre</title>
+  <meta name="description" content="Tabla de tarifas de alquiler de bicicletas y programación de tours guiados en Rueda Libre.">
+  <title>Tarifas y Rutas | Rueda Libre</title>
+  <link rel="stylesheet" href="../style.css">
 </head>
 <body>
+
   <header>
-    <img src="../img/images.png" alt="Logo oficial de Rueda Libre" width="300">
+    <div class="marca">
+      <h1>Rueda Libre</h1>
+    </div>
     <nav>
-      <a href="../index.html">← Volver al inicio</a>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="tarifas.html">Tarifas y rutas</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+      </ul>
     </nav>
   </header>
+
   <main>
-    <h1>Tarifas y Recorridos</h1>
-    <section id="tarifas-alquiler">
-      <h2>Tarifas de Alquiler de Bicicletas</h2>
-      <table border="1">
-        <caption>Precios de alquiler por tipo de bicicleta y duración</caption>
-        <thead>
-          <tr>
-            <th scope="col">Tipo de Bicicleta</th>
-            <th scope="col">1 Hora</th>
-            <th scope="col">Medio Día (4h)</th>
-            <th scope="col">Día Completo (8h)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Bicicleta Urbana</th>
-            <td>$15.000 COP</td>
-            <td>$45.000 COP</td>
-            <td>$70.000 COP</td>
-          </tr>
-          <tr>
-            <th scope="row">Bicicleta de Montaña</th>
-            <td>$20.000 COP</td>
-            <td>$60.000 COP</td>
-            <td>$95.000 COP</td>
-          </tr>
-          <tr>
-            <th scope="row">Bicicleta Eléctrica</th>
-            <td>$30.000 COP</td>
-            <td>$90.000 COP</td>
-            <td>$140.000 COP</td>
-          </tr>
-        </tbody>
-      </table>
+    <section id="tarifas">
+      <h2>Tarifas de Alquiler</h2>
+      <p>Precios claros sin recargos ocultos. Incluye casco y candado de seguridad.</p>
+
+      <!-- Contenedor protector contra desbordamiento en móvil -->
+      <div class="contenedor-tabla">
+        <table>
+          <caption>Tarifas por tipo de bicicleta y tiempo</caption>
+          <thead>
+            <tr>
+              <th scope="col">Tipo de Bicicleta</th>
+              <th scope="col">Por Hora</th>
+              <th scope="col">Medio Día (4h)</th>
+              <th scope="col">Día Completo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Urbana Clásica</th>
+              <td>$5.000</td>
+              <td>$12.000</td>
+              <td>$15.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Montaña Trail</th>
+              <td>$7.000</td>
+              <td>$16.000</td>
+              <td>$20.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Eléctrica E-City</th>
+              <td>$12.000</td>
+              <td>$28.000</td>
+              <td>$35.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Tándem (Pareja)</th>
+              <td>$8.000</td>
+              <td>$18.000</td>
+              <td>$20.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section id="recorridos">
-      <h2>Recorridos Guiados</h2>
-      <table border="1">
-        <caption>Planes turísticos guiados por Medellín</caption>
-        <thead>
-          <tr>
-            <th scope="col">Nombre del Tour</th>
-            <th scope="col">Duración</th>
-            <th scope="col">Dificultad</th>
-            <th scope="col">Precio por Persona</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <th scope="row">Ruta Centro Histórico</th>
-            <td>3 horas</td>
-            <td>Baja</td>
-            <td>$65.000 COP</td>
-          </tr>
-          <tr>
-            <th scope="row">Tour Parques del Río y Laureles</th>
-            <td>3.5 horas</td>
-            <td>Baja - Media</td>
-            <td>$75.000 COP</td>
-          </tr>
-          <tr>
-            <th scope="row">Ruta Panorámica Cerro Nutibara</th>
-            <td>4 horas</td>
-            <td>Media</td>
-            <td>$85.000 COP</td>
-          </tr>
-        </tbody>
-      </table>
-    </section>
+      <h2>Tours y Recorridos Guiados</h2>
+      <p>Conoce la ciudad guiado por ciclistas locales expertos.</p>
 
-    <section id="informacion-adicional">
-      <h2>Información importante para tu alquiler</h2>
+      <div class="contenedor-tabla">
+        <table>
+          <caption>Programación de recorridos semanales</caption>
+          <thead>
+            <tr>
+              <th scope="col">Recorrido</th>
+              <th scope="col">Días</th>
+              <th scope="col">Horario</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">Tour Botánico</th>
+              <td>Martes y Jueves</td>
+              <td>09:00 a. m.</td>
+              <td>$30.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Centro Histórico</th>
+              <td>Miércoles y Sábados</td>
+              <td>10:00 a. m.</td>
+              <td>$35.000</td>
+            </tr>
+            <tr>
+              <th scope="row">Ruta Nocturna</th>
+              <td>Viernes</td>
+              <td>07:00 p. m.</td>
+              <td>$25.000</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-      <p>
-        <strong>Nota importante:</strong> Todos los servicios de alquiler y recorridos guiados 
-        <em>incluyen sin costo adicional casco de seguridad y candado de alta resistencia</em>.
+      <p class="mt-4">
+        <a href="reservas.html" class="btn-reservar-hero">¡Reservar ahora!</a>
       </p>
-
-      <h3>Horarios de salida para tours guiados</h3>
-      <p>Las salidas programadas se realizan de martes a domingo en dos turnos: <strong>08:30 a. m.</strong> y <strong>02:30 p. m.</strong> (se requiere llegar 15 minutos antes para la calibración del equipo).</p>
-
-      <h3>¿Qué debes llevar?</h3>
-      <ul>
-        <li>Documento de identidad original (cédula o pasaporte).</li>
-        <li>Ropa cómoda deportiva y calzado cerrado.</li>
-        <li>Protector solar y gafas para el sol.</li>
-        <li>Termo o botella con agua para hidratación.</li>
-      </ul>
     </section>
   </main>
+
+  <footer>
+    <div class="bloque-marca">
+      <h3>Rueda Libre</h3>
+      <p>Movilidad sostenible, ágil y divertida por toda la ciudad.</p>
+    </div>
+    <div class="bloque-contacto">
+      <h3>Contacto</h3>
+      <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+      <p>Ubicación: Medellín, Colombia</p>
+    </div>
+    <div class="bloque-horario">
+      <h3>Horario</h3>
+      <p>Lunes a Domingo: 06:00 a. m. – 08:00 p. m.</p>
+    </div>
+  </footer>
+
 </body>
 </html>
