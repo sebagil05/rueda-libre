@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formulario de reserva de bicicletas en Rueda Libre. Elige tu modelo y confirma tus datos.">
+  <title>Reservas | Rueda Libre</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header>
+    <div class="marca">
+      <h1>Rueda Libre</h1>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="tarifas.html">Tarifas y rutas</a></li>
+        <li><a href="reservas.html">Reservas</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Distribución Grid 2:1 en desktop (Formulario 2fr / Contacto 1fr) -->
+  <main class="contenedor-reservas-grid">
+    
+    <!-- Bloque Formulario (2fr) -->
+    <section class="bloque-formulario">
+      <h2>Reserva tu bicicleta</h2>
+      <form id="form-reserva" class="form-reserva" action="#" method="POST">
+        
+        <!-- Dos campos cortos en la misma fila (Grid) -->
+        <div class="fila-campos-doble">
+          <div class="campo">
+            <label for="documento">Documento de Identidad <span class="obligatorio">*</span></label>
+            <input type="text" id="documento" name="documento" placeholder="C.C. / Pasaporte" required>
+          </div>
+          <div class="campo">
+            <label for="celular">Número de Celular <span class="obligatorio">*</span></label>
+            <input type="tel" id="celular" name="celular" placeholder="300 123 4567" required>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="nombre">Nombre completo <span class="obligatorio">*</span></label>
+          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+        </div>
+
+        <div class="campo">
+          <label for="email">Correo electrónico <span class="obligatorio">*</span></label>
+          <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="tipo-bici">Tipo de bicicleta:</label>
+          <select id="tipo-bici" name="tipo_bici" required>
+            <option value="" disabled selected>Selecciona un modelo...</option>
+            <option value="urbana">Urbana Clásica</option>
+            <option value="montana">Montaña Trail</option>
+            <option value="electrica">Eléctrica E-City</option>
+            <option value="plegable">Plegable Commuter</option>
+            <option value="infantil">Infantil Explorer</option>
+            <option value="ruta">Ruta Speedster</option>
+            <option value="tandem">Tándem</option>
+          </select>
+        </div>
+
+        <div class="campo">
+          <label for="mensaje">Comentarios o solicitudes:</label>
+          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Indícanos accesorios adicionales..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-confirmar">Confirmar Reserva</button>
+      </form>
+    </section>
+
+    <!-- Bloque Información de Contacto y Horarios (1fr) -->
+    <aside class="bloque-contacto-info">
+      <h2>Información de atención</h2>
+      
+      <div class="tarjeta-info">
+        <h3>Canales de atención</h3>
+        <p>Escríbenos a: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+      </div>
+
+      <div class="tarjeta-info">
+        <h3>Horarios de atención</h3>
+        <dl>
+          <dt>Lunes a Viernes</dt>
+          <dd>07:00 a. m. – 07:00 p. m.</dd>
+
+          <dt>Sábados y Domingos</dt>
+          <dd>06:00 a. m. – 08:00 p. m.</dd>
+
+          <dt>Festivos</dt>
+          <dd>07:00 a. m. – 06:00 p. m.</dd>
+        </dl>
+      </div>
+    </aside>
+
+  </main>
+
+  <footer>
+    <div class="bloque-marca">
+      <h3>Rueda Libre</h3>
+      <p>Movilidad sostenible, ágil y divertida por toda la ciudad.</p>
+    </div>
+    <div class="bloque-contacto">
+      <h3>Contacto</h3>
+      <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+      <p>Ubicación: Medellín, Colombia</p>
+    </div>
+    <div class="bloque-horario">
+      <h3>Horario</h3>
+      <p>Lunes a Domingo: 06:00 a. m. – 08:00 p. m.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
