@@ -14,3 +14,87 @@ Significado:Es un código de estado HTTP de la familia 4xx (errores del cliente)
 html: se utiliza para generar las estructura de la pagina, textos, imagenes, etc.
 CSS: se encarga de ajustar el estilo y diseño de la pagina.
 javascript: se encarga de adr funcionamiento y acciones en la pagina.
+
+
+================================================================================
+BITACORA TECNICA DE DESARROLLO - RUEDA LIBRE (VERSION 2.0 - BOOTSTRAP 5.3)
+================================================================================
+
+--------------------------------------------------------------------------------
+MINIRETO 5: RECONSTRUCCION DE LA FLOTA CON BOOTSTRAP GRID (pruebas/catalogo-bootstrap.html)
+--------------------------------------------------------------------------------
+1. Comparativa de tiempo y codigo (Seccion Nuestra flota):
+   - Tiempo invertido en CSS propio (v1.5): ~60 minutos (calculo de minmax, Flexbox vertical y ajustes).
+   - Tiempo invertido con Bootstrap 5.3 (Prueba): ~25 minutos (aplicando container, row g-4 y columnas).
+   - Lineas de CSS de distribucion:
+     * Version CSS propio (v1.5): 48 lineas (.rejilla-flota, .tarjeta-flota, .descripcion-flota, .btn-reservar).
+     * Version Bootstrap 5.3: 0 lineas de CSS propio. Se resolvio en HTML con:
+       container, row, g-4, col-12, col-sm-6, col-lg-4, col-xl-3, d-flex, flex-column, h-100, flex-grow-1, mt-auto.
+
+2. Balance tecnico de la prueba:
+   - Que dio Bootstrap sin esfuerzo: Sistema responsivo de 12 columnas en breakpoints estandar (sm, lg, xl), espaciado uniforme con g-4, imagenes fluidas (img-fluid) y alineacion vertical automatica.
+   - Que control se perdio: Con repeat(auto-fit, minmax(260px, 1fr)) las columnas fluian de forma continua en cualquier ancho intermedio; en Bootstrap los saltos ocurren solo en los breakpoints definidos y el HTML tiene mayor densidad de clases.
+
+--------------------------------------------------------------------------------
+MINIRETO 6: SECCION "¿POR QUE RUEDA LIBRE?" CON UTILIDADES (0 LINEAS CSS)
+--------------------------------------------------------------------------------
+Cinco clases consultadas en la documentacion oficial de Bootstrap 5.3:
+1. text-bg-primary: Aplica en una sola utilidad el fondo del color primario y un texto contrastante legible.
+2. gap-3: Define una separacion uniforme (1rem) entre los hijos directos de un contenedor flex o grid.
+3. flex-md-row: Cambia la direccion de Flexbox de columna (flex-column en movil) a fila horizontal desde el breakpoint md (768 px).
+4. d-none d-md-block: Oculta la imagen decorativa del ciclista en celulares (display: none) y la muestra desde tablet/md (display: block).
+5. align-self-start: Evita que la insignia superior de cada beneficio se estire al ancho completo dentro de un contenedor flex vertical.
+
+--------------------------------------------------------------------------------
+MINIRETO 7: TRES CONFLICTOS DETECTADOS ENTRE style.css Y BOOTSTRAP EN index.html
+--------------------------------------------------------------------------------
+1. Color y subrayado de enlaces del menu y botones (etiqueta <a>):
+   - Conflicto: El reset Reboot de Bootstrap aplica color azul y subrayado por defecto a todas las etiquetas <a>.
+   - Solucion: Se utilizaron las clases nativas nav-link y btn / btn-primary / btn-outline-primary, y se definieron las variables de marca en style.css cargado despues de Bootstrap, sin usar !important.
+
+2. Margenes inferiores en encabezados y parrafos (h1-h3, p) vs. utilidades mb-*:
+   - Conflicto: Las reglas globales antiguas de style.css (p { margin-bottom: 1rem; }) tenian la misma especificidad que las utilidades mb-0 o mb-4 de Bootstrap y anulaban los espaciados dentro de tarjetas y pie de pagina.
+   - Solucion: Se eliminaron los margenes globales forzados sobre etiquetas HTML en style.css, delegando el espaciado a las utilidades mb-* de Bootstrap.
+
+3. Reseteo universal (* { margin: 0; padding: 0; }) anulando listas y contenedores:
+   - Conflicto: El selector universal * borraba el relleno interno de listas y componentes de Bootstrap.
+   - Solucion: Se elimino el bloque * { margin: 0; padding: 0; } porque Bootstrap Reboot ya gestiona box-sizing: border-box y los margenes base.
+
+--------------------------------------------------------------------------------
+MINIRETO 8: COMPARATIVA FINAL RUEDA LIBRE v1.5 VS. v2.0-BETA
+--------------------------------------------------------------------------------
+- Lineas en style.css:
+  * v1.5 (CSS propio): 398 lineas.
+  * v2.0-beta (Bootstrap 5.3): 174 lineas (reduccion de 224 lineas, -56.3%).
+- Media queries propias (@media):
+  * v1.5: 2 bloques (768 px y 1200 px) con 11 reglas de layout.
+  * v2.0-beta: 0 bloques @media (100% eliminadas).
+- Tiempo total de maquetacion:
+  * v1.5: ~4 horas.
+  * v2.0-beta: ~2 horas (~50% de ahorro de tiempo).
+- Conclusion: La migracion a Bootstrap 5.3 redujo a menos de la mitad el archivo style.css, elimino todas las media queries manuales de distribucion y mantuvo intacta la identidad visual (tablas de la semana 1 y pasos numerados) sin recurrir a !important.
+
+--------------------------------------------------------------------------------
+MINIRETOS 9 A 12: COMPONENTES INTERACTIVOS E IDENTIDAD DE MARCA (RUEDA LIBRE v2.0)
+--------------------------------------------------------------------------------
+1. Navbar y botones (MiniReto 9):
+   - Se reemplazo el encabezado en index.html, tarifas.html y reservas.html por navbar navbar-expand-lg con boton hamburguesa (navbar-toggler) colapsable por debajo de 992 px, navegable con teclado (Tab y Enter) y pagina actual marcada con .active y aria-current="page".
+   - Se unificaron las llamadas a la accion con btn: btn-naranja-pedal para reservar, btn-primary en catalogo y btn-outline-primary para consultar tarifas y recorridos.
+
+2. Cards y Carrusel (MiniReto 10):
+   - Los 7 modelos de la flota y las 3 rutas se convirtieron en componentes card con card-img-top, card-body, h-100 y mt-auto para igualar alturas por fila.
+   - Se integro el carrusel #carruselPromociones con las 3 promociones del mes, avance automatico (data-bs-ride="carousel"), texto alternativo alt en cada imagen y etiquetas visually-hidden en los controles anterior/siguiente.
+
+3. Formulario con validacion visual, alerta y modal (MiniReto 11):
+   - En paginas/reservas.html se aplicaron form-label, form-control, form-select y form-check conservando required, minlength, pattern, min y max.
+   - Se activo la validacion visual con needs-validation, novalidate, invalid-feedback especificos por campo y el script oficial de Bootstrap 5.3.
+   - Se agrego la alerta cerrable (alert alert-info alert-dismissible) recordando el documento original y el modal #modalPoliticas con las 5 politicas de alquiler activable por mouse y teclado (Esc).
+
+4. Identidad de marca e iconos v2.0 (MiniReto 12):
+   - Se sobrescribieron las variables --bs-primary (#1b6b3a Verde Ruta), --bs-primary-rgb, --bs-body-*, --bs-link-* y --bs-btn-* en style.css (cargado despues de Bootstrap) sin usar !important.
+   - Se creo la variante .btn-naranja-pedal (#c2410c con texto #ffffff, contraste 5.18:1 >= 4.5:1) y 3 clases propias (.hero-rueda, .titulo-seccion-rueda, .pie-rueda).
+   - Se integraron Bootstrap Icons por CDN en navbar, beneficios, contacto y WhatsApp con aria-hidden="true".
+   - Capturas antes y despues guardadas en:
+     * img/capturas/v2-antes-personalizar.png
+     * img/capturas/v2-despues-identidad.png
+================================================================================
