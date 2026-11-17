@@ -6,108 +6,249 @@
   <meta name="description" content="Formulario de reserva de bicicletas en Rueda Libre. Elige tu modelo y confirma tus datos.">
   <title>Reservas | Rueda Libre</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="../style.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
-  <header class="bg-white border-bottom py-3 px-3 px-md-5 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-    <div class="marca">
-      <h1 class="h3 fw-bold m-0 text-marca">Rueda Libre</h1>
-    </div>
-    <nav>
-      <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 gap-md-4 m-0 p-0">
-        <li><a href="../index.html" class="enlace-nav fw-semibold">Inicio</a></li>
-        <li><a href="tarifas.html" class="enlace-nav fw-semibold">Tarifas y rutas</a></li>
-        <li><a href="reservas.html" class="enlace-nav fw-semibold">Reservas</a></li>
-      </ul>
+
+  <header class="sticky-top shadow-sm">
+    <nav class="navbar navbar-expand-lg bg-white border-bottom py-3">
+      <div class="container">
+        <a class="navbar-brand fw-bold text-primary fs-3 d-flex align-items-center gap-2" href="../index.html">
+          <i class="bi bi-bicycle" aria-hidden="true"></i>
+          <span>Rueda Libre</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir o cerrar menú de navegación">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="menuPrincipal">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3 mt-3 mt-lg-0">
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="../index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-semibold" href="tarifas.html">Tarifas y rutas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active fw-semibold" aria-current="page" href="reservas.html">Reservas</a>
+            </li>
+            <li class="nav-item mt-2 mt-lg-0">
+              <a href="tarifas.html" class="btn btn-outline-primary btn-sm fw-bold px-3">Ver tarifas</a>
+            </li>
+          </ul>
+        </div>
+      </div>
     </nav>
   </header>
-  <main class="container py-4 py-xl-5 flex-grow-1">
+
+  <main class="container py-4 py-lg-5 flex-grow-1">
     <div class="row g-4 align-items-start">
       <section class="col-12 col-md-8">
-        <div class="tarjeta-superficie p-4 p-md-5">
-          <h2 class="fw-bold text-marca mb-4">Reserva tu bicicleta</h2>
-          <form id="form-reserva" class="form-reserva" action="#" method="POST">
+        <div class="bg-white border rounded p-4 p-md-5 shadow-sm">
+          <h1 class="h2 fw-bold titulo-seccion-rueda mb-4">Reserva tu bicicleta</h1>
+          <div class="alert alert-info alert-dismissible fade show d-flex align-items-center gap-2" role="alert">
+            <i class="bi bi-info-circle-fill fs-5" aria-hidden="true"></i>
+            <div>
+              <strong>Recuerda:</strong> Debes presentar tu documento de identidad original (cédula o pasaporte) al momento de recoger la bicicleta.
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar aviso"></button>
+          </div>
+          <form id="form-reserva" class="needs-validation" action="#" method="POST" novalidate>
             <div class="row g-3 mb-3">
               <div class="col-12 col-md-6">
-                <label for="documento" class="form-label fw-semibold">Documento de Identidad <span class="obligatorio">*</span></label>
-                <input type="text" id="documento" name="documento" placeholder="C.C. / Pasaporte" required>
+                <label for="documento" class="form-label fw-semibold">
+                  Documento de Identidad <span class="obligatorio">*</span>
+                </label>
+                <input type="text" class="form-control" id="documento" name="documento" placeholder="C.C. / Pasaporte" minlength="5" maxlength="20" pattern="[A-Za-z0-9]{5,20}" required>
+                <div class="invalid-feedback">
+                  Ingresa un número de documento válido entre 5 y 20 caracteres alfanuméricos, sin puntos ni espacios.
+                </div>
               </div>
               <div class="col-12 col-md-6">
-                <label for="celular" class="form-label fw-semibold">Número de Celular <span class="obligatorio">*</span></label>
-                <input type="tel" id="celular" name="celular" placeholder="300 123 4567" required>
+                <label for="celular" class="form-label fw-semibold">
+                  Número de Celular <span class="obligatorio">*</span>
+                </label>
+                <input type="tel" class="form-control" id="celular" name="celular" placeholder="3001234567" pattern="[0-9]{10}" minlength="10" maxlength="10" required>
+                <div class="invalid-feedback">
+                  Escribe un número de celular de 10 dígitos numéricos sin espacios ni guiones (ej. 3001234567).
+                </div>
               </div>
             </div>
             <div class="mb-3">
-              <label for="nombre" class="form-label fw-semibold">Nombre completo <span class="obligatorio">*</span></label>
-              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+              <label for="nombre" class="form-label fw-semibold">
+                Nombre completo <span class="obligatorio">*</span>
+              </label>
+              <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Tu nombre y apellido" minlength="3" required>
+              <div class="invalid-feedback">
+                Ingresa tu nombre y apellido completos (mínimo 3 caracteres).
+              </div>
             </div>
             <div class="mb-3">
-              <label for="email" class="form-label fw-semibold">Correo electrónico <span class="obligatorio">*</span></label>
-              <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+              <label for="email" class="form-label fw-semibold">
+                Correo electrónico <span class="obligatorio">*</span>
+              </label>
+              <input type="email" class="form-control" id="email" name="email" placeholder="ejemplo@correo.com" required>
+              <div class="invalid-feedback">
+                Introduce un correo electrónico válido que incluya @ y dominio (ej. nombre@correo.com).
+              </div>
+            </div>
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-8">
+                <label for="tipo-bici" class="form-label fw-semibold">
+                  Tipo de bicicleta <span class="obligatorio">*</span>
+                </label>
+                <select class="form-select" id="tipo-bici" name="tipo_bici" required>
+                  <option value="" disabled selected>Selecciona un modelo...</option>
+                  <option value="urbana">Urbana Clásica</option>
+                  <option value="montana">Montaña Trail</option>
+                  <option value="electrica">Eléctrica E-City</option>
+                  <option value="plegable">Plegable Commuter</option>
+                  <option value="infantil">Infantil Explorer</option>
+                  <option value="ruta">Ruta Speedster</option>
+                  <option value="tandem">Tándem</option>
+                </select>
+                <div class="invalid-feedback">
+                  Selecciona uno de los modelos de bicicleta disponibles en la lista.
+                </div>
+              </div>
+              <div class="col-12 col-md-4">
+                <label for="cantidad" class="form-label fw-semibold">
+                  Cantidad <span class="obligatorio">*</span>
+                </label>
+                <input type="number" class="form-control" id="cantidad" name="cantidad" value="1" min="1" max="10" required>
+                <div class="invalid-feedback">
+                  Indica una cantidad válida entre 1 y 10 bicicletas.
+                </div>
+              </div>
             </div>
             <div class="mb-3">
-              <label for="tipo-bici" class="form-label fw-semibold">Tipo de bicicleta:</label>
-              <select id="tipo-bici" name="tipo_bici" required>
-                <option value="" disabled selected>Selecciona un modelo...</option>
-                <option value="urbana">Urbana Clásica</option>
-                <option value="montana">Montaña Trail</option>
-                <option value="electrica">Eléctrica E-City</option>
-                <option value="plegable">Plegable Commuter</option>
-                <option value="infantil">Infantil Explorer</option>
-                <option value="ruta">Ruta Speedster</option>
-                <option value="tandem">Tándem</option>
-              </select>
+              <label for="mensaje" class="form-label fw-semibold">Comentarios o solicitudes:</label>
+              <textarea class="form-control" id="mensaje" name="mensaje" rows="3" maxlength="300" placeholder="Indícanos accesorios adicionales o estatura aproximada..."></textarea>
             </div>
             <div class="mb-4">
-              <label for="mensaje" class="form-label fw-semibold">Comentarios o solicitudes:</label>
-              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Indícanos accesorios adicionales..."></textarea>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="aceptoPoliticas" required>
+                <label class="form-check-label" for="aceptoPoliticas">
+                  He leído y acepto las
+                  <button type="button" class="btn btn-link p-0 align-baseline fw-semibold" data-bs-toggle="modal" data-bs-target="#modalPoliticas">
+                    Políticas de alquiler
+                  </button>
+                  <span class="obligatorio">*</span>
+                </label>
+                <div class="invalid-feedback">
+                  Debes marcar esta casilla para aceptar las políticas de alquiler antes de confirmar.
+                </div>
+              </div>
             </div>
-            <button type="submit" class="btn-marca fw-bold px-4 py-2 rounded">Confirmar Reserva</button>
+            <div class="d-flex flex-wrap gap-2">
+              <button type="submit" class="btn btn-naranja-pedal btn-lg fw-bold px-4">Confirmar Reserva</button>
+              <a href="tarifas.html" class="btn btn-outline-primary btn-lg fw-bold px-4">Ver tarifas</a>
+            </div>
           </form>
         </div>
       </section>
       <aside class="col-12 col-md-4">
-        <div class="tarjeta-superficie p-4">
-          <h2 class="h4 fw-bold text-marca mb-3">Información de atención</h2>
+        <div class="bg-white border rounded p-4 shadow-sm">
+          <h2 class="h4 fw-bold text-primary mb-3">Información de atención</h2>
           <div class="mb-3">
-            <h3 class="h6 fw-bold text-marca">Canales de atención</h3>
-            <p class="mb-0">Escríbenos a: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+            <h3 class="h6 fw-bold text-primary">Canales de atención</h3>
+            <p class="small text-secondary mb-1">
+              <i class="bi bi-envelope text-primary me-2" aria-hidden="true"></i>
+              <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>
+            </p>
+            <p class="small text-secondary mb-0">
+              <i class="bi bi-whatsapp text-primary me-2" aria-hidden="true"></i>
+              <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">+57 300 123 4567</a>
+            </p>
           </div>
           <div>
-            <h3 class="h6 fw-bold text-marca">Horarios de atención</h3>
-            <dl class="caja-horarios mb-0">
-              <dt>Lunes a Viernes</dt>
-              <dd>07:00 a. m. – 07:00 p. m.</dd>
-              <dt>Sábados y Domingos</dt>
-              <dd>06:00 a. m. – 08:00 p. m.</dd>
-              <dt>Festivos</dt>
-              <dd>07:00 a. m. – 06:00 p. m.</dd>
+            <h3 class="h6 fw-bold text-primary">Horarios de atención</h3>
+            <dl class="bg-light border rounded p-3 mb-0 small">
+              <dt class="fw-bold text-primary">Lunes a Viernes</dt>
+              <dd class="ms-2 mb-2 text-secondary">07:00 a. m. – 07:00 p. m.</dd>
+              <dt class="fw-bold text-primary">Sábados y Domingos</dt>
+              <dd class="ms-2 mb-2 text-secondary">06:00 a. m. – 08:00 p. m.</dd>
+              <dt class="fw-bold text-primary">Festivos</dt>
+              <dd class="ms-2 mb-0 text-secondary">07:00 a. m. – 06:00 p. m.</dd>
             </dl>
           </div>
         </div>
       </aside>
-
     </div>
   </main>
-  <footer class="bg-white border-top py-4 px-3 px-md-5 mt-auto">
+  <div class="modal fade" id="modalPoliticas" tabindex="-1" aria-labelledby="tituloModalPoliticas" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title h5 fw-bold text-primary" id="tituloModalPoliticas">
+            <i class="bi bi-file-earmark-text me-2" aria-hidden="true"></i>Políticas de alquiler
+          </h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar ventana de políticas"></button>
+        </div>
+        <div class="modal-body">
+          <ol class="mb-0 ps-3 text-secondary">
+            <li class="mb-2">Presenta tu documento de identidad original al recoger la bicicleta.</li>
+            <li class="mb-2">Revisa la bicicleta con el asesor antes de salir.</li>
+            <li class="mb-2">Cada 15 minutos de retraso en la devolución tienen un recargo de $5.000.</li>
+            <li class="mb-2">Los daños por mal uso se cobran según el costo de la reparación.</li>
+            <li class="mb-0">Los menores de edad deben estar acompañados por un adulto responsable.</li>
+          </ol>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary btn-sm fw-bold px-3" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer class="pie-rueda py-4 mt-auto">
     <div class="container">
       <div class="row g-4 text-center text-md-start">
         <div class="col-12 col-md-4">
-          <h3 class="h5 fw-bold text-marca">Rueda Libre</h3>
-          <p class="mb-0">Movilidad sostenible, ágil y divertida por toda la ciudad.</p>
+          <h3 class="h5 fw-bold text-white d-flex align-items-center justify-content-center justify-content-md-start gap-2">
+            <i class="bi bi-bicycle" aria-hidden="true"></i> Rueda Libre
+          </h3>
+          <p class="small mb-0">Movilidad sostenible, ágil y divertida por toda la ciudad.</p>
         </div>
         <div class="col-12 col-md-4">
-          <h3 class="h5 fw-bold text-marca">Contacto</h3>
-          <p class="mb-1">Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
-          <p class="mb-0">Ubicación: Medellín, Colombia</p>
+          <h3 class="h5 fw-bold text-white">Contacto</h3>
+          <p class="small mb-1">
+            <i class="bi bi-envelope me-2" aria-hidden="true"></i>
+            <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a>
+          </p>
+          <p class="small mb-1">
+            <i class="bi bi-whatsapp me-2" aria-hidden="true"></i>
+            <a href="https://wa.me/573001234567" target="_blank" rel="noopener noreferrer">WhatsApp: +57 300 123 4567</a>
+          </p>
+          <p class="small mb-0">
+            <i class="bi bi-geo-alt me-2" aria-hidden="true"></i>Medellín, Colombia
+          </p>
         </div>
         <div class="col-12 col-md-4">
-          <h3 class="h5 fw-bold text-marca">Horario</h3>
-          <p class="mb-0">Lunes a Domingo: 06:00 a. m. – 08:00 p. m.</p>
+          <h3 class="h5 fw-bold text-white">Horario</h3>
+          <p class="small mb-0">
+            <i class="bi bi-clock me-2" aria-hidden="true"></i>Lunes a Domingo: 06:00 a. m. – 08:00 p. m.
+          </p>
         </div>
       </div>
     </div>
   </footer>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    (() => {
+      'use strict'
+      const forms = document.querySelectorAll('.needs-validation')
+      Array.from(forms).forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+          form.classList.add('was-validated')
+        }, false)
+      })
+    })()
+  </script>
 </body>
 </html>
