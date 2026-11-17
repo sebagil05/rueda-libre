@@ -5,129 +5,146 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Tabla de tarifas de alquiler de bicicletas y programación de tours guiados en Rueda Libre.">
   <title>Tarifas y Rutas | Rueda Libre</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-
-  <header>
+<body class="d-flex flex-column min-vh-100">
+  <header class="bg-white border-bottom py-3 px-3 px-md-5 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
     <div class="marca">
-      <h1>Rueda Libre</h1>
+      <h1 class="h3 fw-bold m-0 text-marca">Rueda Libre</h1>
     </div>
     <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="tarifas.html">Tarifas y rutas</a></li>
-        <li><a href="reservas.html">Reservas</a></li>
+      <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 gap-md-4 m-0 p-0">
+        <li><a href="../index.html" class="enlace-nav fw-semibold">Inicio</a></li>
+        <li><a href="tarifas.html" class="enlace-nav fw-semibold">Tarifas y rutas</a></li>
+        <li><a href="reservas.html" class="enlace-nav fw-semibold">Reservas</a></li>
       </ul>
     </nav>
   </header>
-
-  <main>
-    <section id="tarifas">
-      <h2>Tarifas de Alquiler</h2>
-      <p>Precios claros sin recargos ocultos. Incluye casco y candado de seguridad.</p>
-
-      <!-- Contenedor protector contra desbordamiento en móvil -->
-      <div class="contenedor-tabla">
-        <table>
-          <caption>Tarifas por tipo de bicicleta y tiempo</caption>
-          <thead>
-            <tr>
-              <th scope="col">Tipo de Bicicleta</th>
-              <th scope="col">Por Hora</th>
-              <th scope="col">Medio Día (4h)</th>
-              <th scope="col">Día Completo</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Urbana Clásica</th>
-              <td>$5.000</td>
-              <td>$12.000</td>
-              <td>$15.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Montaña Trail</th>
-              <td>$7.000</td>
-              <td>$16.000</td>
-              <td>$20.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Eléctrica E-City</th>
-              <td>$12.000</td>
-              <td>$28.000</td>
-              <td>$35.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Tándem (Pareja)</th>
-              <td>$8.000</td>
-              <td>$18.000</td>
-              <td>$20.000</td>
-            </tr>
-          </tbody>
-        </table>
+  <main class="container py-4 py-xl-5 flex-grow-1">
+    <div class="row g-4 align-items-start">
+      <div class="col-12 col-lg-8">
+        <section id="tarifas" class="tarjeta-superficie p-4 mb-4">
+          <h2 class="fw-bold text-marca">Tarifas de Alquiler</h2>
+          <p>Precios claros sin recargos ocultos. Incluye casco y candado de seguridad.</p>
+          <div class="contenedor-tabla">
+            <table class="tabla-rueda">
+              <caption>Tarifas por tipo de bicicleta y tiempo</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Tipo de Bicicleta</th>
+                  <th scope="col">Por Hora</th>
+                  <th scope="col">Medio Día (4h)</th>
+                  <th scope="col">Día Completo</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Urbana Clásica</th>
+                  <td>$5.000</td>
+                  <td>$12.000</td>
+                  <td>$15.000</td>
+                </tr>
+                <tr>
+                  <th scope="row">Montaña Trail</th>
+                  <td>$7.000</td>
+                  <td>$16.000</td>
+                  <td>$20.000</td>
+                </tr>
+                <tr>
+                  <th scope="row">Eléctrica E-City</th>
+                  <td>$12.000</td>
+                  <td>$28.000</td>
+                  <td>$35.000</td>
+                </tr>
+                <tr>
+                  <th scope="row">Tándem (Pareja)</th>
+                  <td>$8.000</td>
+                  <td>$18.000</td>
+                  <td>$20.000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section id="recorridos" class="tarjeta-superficie p-4">
+          <h2 class="fw-bold text-marca">Tours y Recorridos Guiados</h2>
+          <p>Conoce la ciudad guiado por ciclistas locales expertos.</p>
+          <div class="contenedor-tabla">
+            <table class="tabla-rueda">
+              <caption>Programación de recorridos semanales</caption>
+              <thead>
+                <tr>
+                  <th scope="col">Recorrido</th>
+                  <th scope="col">Días</th>
+                  <th scope="col">Horario</th>
+                  <th scope="col">Precio</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Tour Botánico</th>
+                  <td>Martes y Jueves</td>
+                  <td>09:00 a. m.</td>
+                  <td>$30.000</td>
+                </tr>
+                <tr>
+                  <th scope="row">Centro Histórico</th>
+                  <td>Miércoles y Sábados</td>
+                  <td>10:00 a. m.</td>
+                  <td>$35.000</td>
+                </tr>
+                <tr>
+                  <th scope="row">Ruta Nocturna</th>
+                  <td>Viernes</td>
+                  <td>07:00 p. m.</td>
+                  <td>$25.000</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="mt-4">
+            <a href="reservas.html" class="btn-marca d-inline-block fw-bold px-4 py-2 rounded">¡Reservar ahora!</a>
+          </div>
+        </section>
       </div>
-    </section>
-
-    <section id="recorridos">
-      <h2>Tours y Recorridos Guiados</h2>
-      <p>Conoce la ciudad guiado por ciclistas locales expertos.</p>
-
-      <div class="contenedor-tabla">
-        <table>
-          <caption>Programación de recorridos semanales</caption>
-          <thead>
-            <tr>
-              <th scope="col">Recorrido</th>
-              <th scope="col">Días</th>
-              <th scope="col">Horario</th>
-              <th scope="col">Precio</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th scope="row">Tour Botánico</th>
-              <td>Martes y Jueves</td>
-              <td>09:00 a. m.</td>
-              <td>$30.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Centro Histórico</th>
-              <td>Miércoles y Sábados</td>
-              <td>10:00 a. m.</td>
-              <td>$35.000</td>
-            </tr>
-            <tr>
-              <th scope="row">Ruta Nocturna</th>
-              <td>Viernes</td>
-              <td>07:00 p. m.</td>
-              <td>$25.000</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <p class="mt-4">
-        <a href="reservas.html" class="btn-reservar-hero">¡Reservar ahora!</a>
-      </p>
-    </section>
+      <aside class="col-12 col-lg-4">
+        <div class="tarjeta-superficie p-4 mb-4">
+          <h3 class="h5 fw-bold text-marca mb-3">Incluido en cada salida</h3>
+          <ul class="mb-0 ps-3">
+            <li class="mb-2">Casco homologado ajustable.</li>
+            <li class="mb-2">Candado de guaya o en U de alta seguridad.</li>
+            <li class="mb-2">Kit básico de despinche y mapa de ciclorrutas.</li>
+            <li>Asistencia mecánica en el Valle de Aburrá.</li>
+          </ul>
+        </div>
+        <div class="tarjeta-superficie p-4">
+          <h3 class="h5 fw-bold text-marca mb-3">Condiciones de alquiler</h3>
+          <p class="small mb-2">Presentar cédula de ciudadanía o pasaporte original al momento de retirar la bicicleta.</p>
+          <p class="small mb-0">Para grupos mayores a 6 personas ofrecemos tarifa especial corporativa o familiar.</p>
+        </div>
+      </aside>
+    </div>
   </main>
-
-  <footer>
-    <div class="bloque-marca">
-      <h3>Rueda Libre</h3>
-      <p>Movilidad sostenible, ágil y divertida por toda la ciudad.</p>
-    </div>
-    <div class="bloque-contacto">
-      <h3>Contacto</h3>
-      <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
-      <p>Ubicación: Medellín, Colombia</p>
-    </div>
-    <div class="bloque-horario">
-      <h3>Horario</h3>
-      <p>Lunes a Domingo: 06:00 a. m. – 08:00 p. m.</p>
+  <footer class="bg-white border-top py-4 px-3 px-md-5 mt-auto">
+    <div class="container">
+      <div class="row g-4 text-center text-md-start">
+        <div class="col-12 col-md-4">
+          <h3 class="h5 fw-bold text-marca">Rueda Libre</h3>
+          <p class="mb-0">Movilidad sostenible, ágil y divertida por toda la ciudad.</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <h3 class="h5 fw-bold text-marca">Contacto</h3>
+          <p class="mb-1">Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+          <p class="mb-0">Ubicación: Medellín, Colombia</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <h3 class="h5 fw-bold text-marca">Horario</h3>
+          <p class="mb-0">Lunes a Domingo: 06:00 a. m. – 08:00 p. m.</p>
+        </div>
+      </div>
     </div>
   </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

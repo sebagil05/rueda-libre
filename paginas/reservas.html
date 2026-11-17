@@ -5,117 +5,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Formulario de reserva de bicicletas en Rueda Libre. Elige tu modelo y confirma tus datos.">
   <title>Reservas | Rueda Libre</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="../style.css">
 </head>
-<body>
-
-  <header>
+<body class="d-flex flex-column min-vh-100">
+  <header class="bg-white border-bottom py-3 px-3 px-md-5 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
     <div class="marca">
-      <h1>Rueda Libre</h1>
+      <h1 class="h3 fw-bold m-0 text-marca">Rueda Libre</h1>
     </div>
     <nav>
-      <ul>
-        <li><a href="../index.html">Inicio</a></li>
-        <li><a href="tarifas.html">Tarifas y rutas</a></li>
-        <li><a href="reservas.html">Reservas</a></li>
+      <ul class="list-unstyled d-flex flex-wrap justify-content-center gap-3 gap-md-4 m-0 p-0">
+        <li><a href="../index.html" class="enlace-nav fw-semibold">Inicio</a></li>
+        <li><a href="tarifas.html" class="enlace-nav fw-semibold">Tarifas y rutas</a></li>
+        <li><a href="reservas.html" class="enlace-nav fw-semibold">Reservas</a></li>
       </ul>
     </nav>
   </header>
-
-  <!-- Distribución Grid 2:1 en desktop (Formulario 2fr / Contacto 1fr) -->
-  <main class="contenedor-reservas-grid">
-    
-    <!-- Bloque Formulario (2fr) -->
-    <section class="bloque-formulario">
-      <h2>Reserva tu bicicleta</h2>
-      <form id="form-reserva" class="form-reserva" action="#" method="POST">
-        
-        <!-- Dos campos cortos en la misma fila (Grid) -->
-        <div class="fila-campos-doble">
-          <div class="campo">
-            <label for="documento">Documento de Identidad <span class="obligatorio">*</span></label>
-            <input type="text" id="documento" name="documento" placeholder="C.C. / Pasaporte" required>
+  <main class="container py-4 py-xl-5 flex-grow-1">
+    <div class="row g-4 align-items-start">
+      <section class="col-12 col-md-8">
+        <div class="tarjeta-superficie p-4 p-md-5">
+          <h2 class="fw-bold text-marca mb-4">Reserva tu bicicleta</h2>
+          <form id="form-reserva" class="form-reserva" action="#" method="POST">
+            <div class="row g-3 mb-3">
+              <div class="col-12 col-md-6">
+                <label for="documento" class="form-label fw-semibold">Documento de Identidad <span class="obligatorio">*</span></label>
+                <input type="text" id="documento" name="documento" placeholder="C.C. / Pasaporte" required>
+              </div>
+              <div class="col-12 col-md-6">
+                <label for="celular" class="form-label fw-semibold">Número de Celular <span class="obligatorio">*</span></label>
+                <input type="tel" id="celular" name="celular" placeholder="300 123 4567" required>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="nombre" class="form-label fw-semibold">Nombre completo <span class="obligatorio">*</span></label>
+              <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label fw-semibold">Correo electrónico <span class="obligatorio">*</span></label>
+              <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
+            </div>
+            <div class="mb-3">
+              <label for="tipo-bici" class="form-label fw-semibold">Tipo de bicicleta:</label>
+              <select id="tipo-bici" name="tipo_bici" required>
+                <option value="" disabled selected>Selecciona un modelo...</option>
+                <option value="urbana">Urbana Clásica</option>
+                <option value="montana">Montaña Trail</option>
+                <option value="electrica">Eléctrica E-City</option>
+                <option value="plegable">Plegable Commuter</option>
+                <option value="infantil">Infantil Explorer</option>
+                <option value="ruta">Ruta Speedster</option>
+                <option value="tandem">Tándem</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label for="mensaje" class="form-label fw-semibold">Comentarios o solicitudes:</label>
+              <textarea id="mensaje" name="mensaje" rows="4" placeholder="Indícanos accesorios adicionales..."></textarea>
+            </div>
+            <button type="submit" class="btn-marca fw-bold px-4 py-2 rounded">Confirmar Reserva</button>
+          </form>
+        </div>
+      </section>
+      <aside class="col-12 col-md-4">
+        <div class="tarjeta-superficie p-4">
+          <h2 class="h4 fw-bold text-marca mb-3">Información de atención</h2>
+          <div class="mb-3">
+            <h3 class="h6 fw-bold text-marca">Canales de atención</h3>
+            <p class="mb-0">Escríbenos a: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
           </div>
-          <div class="campo">
-            <label for="celular">Número de Celular <span class="obligatorio">*</span></label>
-            <input type="tel" id="celular" name="celular" placeholder="300 123 4567" required>
+          <div>
+            <h3 class="h6 fw-bold text-marca">Horarios de atención</h3>
+            <dl class="caja-horarios mb-0">
+              <dt>Lunes a Viernes</dt>
+              <dd>07:00 a. m. – 07:00 p. m.</dd>
+              <dt>Sábados y Domingos</dt>
+              <dd>06:00 a. m. – 08:00 p. m.</dd>
+              <dt>Festivos</dt>
+              <dd>07:00 a. m. – 06:00 p. m.</dd>
+            </dl>
           </div>
         </div>
+      </aside>
 
-        <div class="campo">
-          <label for="nombre">Nombre completo <span class="obligatorio">*</span></label>
-          <input type="text" id="nombre" name="nombre" placeholder="Tu nombre y apellido" required>
-        </div>
-
-        <div class="campo">
-          <label for="email">Correo electrónico <span class="obligatorio">*</span></label>
-          <input type="email" id="email" name="email" placeholder="ejemplo@correo.com" required>
-        </div>
-
-        <div class="campo">
-          <label for="tipo-bici">Tipo de bicicleta:</label>
-          <select id="tipo-bici" name="tipo_bici" required>
-            <option value="" disabled selected>Selecciona un modelo...</option>
-            <option value="urbana">Urbana Clásica</option>
-            <option value="montana">Montaña Trail</option>
-            <option value="electrica">Eléctrica E-City</option>
-            <option value="plegable">Plegable Commuter</option>
-            <option value="infantil">Infantil Explorer</option>
-            <option value="ruta">Ruta Speedster</option>
-            <option value="tandem">Tándem</option>
-          </select>
-        </div>
-
-        <div class="campo">
-          <label for="mensaje">Comentarios o solicitudes:</label>
-          <textarea id="mensaje" name="mensaje" rows="4" placeholder="Indícanos accesorios adicionales..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-confirmar">Confirmar Reserva</button>
-      </form>
-    </section>
-
-    <!-- Bloque Información de Contacto y Horarios (1fr) -->
-    <aside class="bloque-contacto-info">
-      <h2>Información de atención</h2>
-      
-      <div class="tarjeta-info">
-        <h3>Canales de atención</h3>
-        <p>Escríbenos a: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
-      </div>
-
-      <div class="tarjeta-info">
-        <h3>Horarios de atención</h3>
-        <dl>
-          <dt>Lunes a Viernes</dt>
-          <dd>07:00 a. m. – 07:00 p. m.</dd>
-
-          <dt>Sábados y Domingos</dt>
-          <dd>06:00 a. m. – 08:00 p. m.</dd>
-
-          <dt>Festivos</dt>
-          <dd>07:00 a. m. – 06:00 p. m.</dd>
-        </dl>
-      </div>
-    </aside>
-
+    </div>
   </main>
-
-  <footer>
-    <div class="bloque-marca">
-      <h3>Rueda Libre</h3>
-      <p>Movilidad sostenible, ágil y divertida por toda la ciudad.</p>
-    </div>
-    <div class="bloque-contacto">
-      <h3>Contacto</h3>
-      <p>Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
-      <p>Ubicación: Medellín, Colombia</p>
-    </div>
-    <div class="bloque-horario">
-      <h3>Horario</h3>
-      <p>Lunes a Domingo: 06:00 a. m. – 08:00 p. m.</p>
+  <footer class="bg-white border-top py-4 px-3 px-md-5 mt-auto">
+    <div class="container">
+      <div class="row g-4 text-center text-md-start">
+        <div class="col-12 col-md-4">
+          <h3 class="h5 fw-bold text-marca">Rueda Libre</h3>
+          <p class="mb-0">Movilidad sostenible, ágil y divertida por toda la ciudad.</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <h3 class="h5 fw-bold text-marca">Contacto</h3>
+          <p class="mb-1">Correo: <a href="mailto:hola@ruedalibre.example">hola@ruedalibre.example</a></p>
+          <p class="mb-0">Ubicación: Medellín, Colombia</p>
+        </div>
+        <div class="col-12 col-md-4">
+          <h3 class="h5 fw-bold text-marca">Horario</h3>
+          <p class="mb-0">Lunes a Domingo: 06:00 a. m. – 08:00 p. m.</p>
+        </div>
+      </div>
     </div>
   </footer>
-
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>
